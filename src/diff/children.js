@@ -23,8 +23,8 @@ export function diffChildren(parentDom, newParentVNode, oldParentVNode, context,
 		nextDom, sibDom, focus,
 		childDom;
 
-	let newChildren = getVNodeChildren(newParentVNode);
-	let oldChildren = oldParentVNode==null || oldParentVNode==EMPTY_OBJ ? EMPTY_ARR : getVNodeChildren(oldParentVNode);
+	let newChildren = newParentVNode._children || toChildArray(newParentVNode.props.children, newParentVNode._children=[]);
+	let oldChildren = oldParentVNode==null || oldParentVNode==EMPTY_OBJ ? EMPTY_ARR : oldParentVNode._children;
 
 	let oldChildrenLength = oldChildren.length;
 
@@ -129,12 +129,12 @@ export function diffChildren(parentDom, newParentVNode, oldParentVNode, context,
  * children of
  * @returns {Array<import('../internal').VNode>} The virtual node's children
  */
-function getVNodeChildren(vnode) {
-	if (vnode._children==null) {
-		toChildArray(vnode.props.children, vnode._children=[]);
-	}
-	return vnode._children;
-}
+// function getVNodeChildren(vnode) {
+// 	if (vnode._children==null) {
+// 		toChildArray(vnode.props.children, vnode._children=[]);
+// 	}
+// 	return vnode._children;
+// }
 
 /**
  * Flatten a virtual nodes children to a single dimensional array
