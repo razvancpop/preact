@@ -130,7 +130,7 @@ export function diffChildren(parentDom, newParentVNode, oldParentVNode, context,
  * @param {Array<import('../internal').VNode | null>} [flattened] An flat array of children to modify
  */
 export function toChildArray(children, flattened) {
-	if (flattened===undefined) flattened = [];
+	if (flattened == null) flattened = [];
 	if (children==null || typeof children === 'boolean') {}
 	else if (Array.isArray(children)) {
 		for (let i=0; i < children.length; i++) {
