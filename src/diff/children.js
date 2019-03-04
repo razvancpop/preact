@@ -124,19 +124,6 @@ export function diffChildren(parentDom, newParentVNode, oldParentVNode, context,
 }
 
 /**
- * Get the children of a virtual node as a flat array
- * @param {import('../internal').VNode} vnode The virtual node to get the
- * children of
- * @returns {Array<import('../internal').VNode>} The virtual node's children
- */
-// function getVNodeChildren(vnode) {
-// 	if (vnode._children==null) {
-// 		toChildArray(vnode.props.children, vnode._children=[]);
-// 	}
-// 	return vnode._children;
-// }
-
-/**
  * Flatten a virtual nodes children to a single dimensional array
  * @param {import('../index').ComponentChildren} children The unflattened
  * children of a virtual node
